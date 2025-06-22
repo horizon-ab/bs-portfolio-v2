@@ -57,7 +57,7 @@ export default function Home() {
         </div>
         <hr className="bg-white w-250"/>
         <div>Contact me:</div>
-        <div className="flex flex-row">
+        <div className="flex flex-row gap-10">
         {Object.entries(icons).map(([name, { href, image }]) => {
         return (
           <a key={name} href={href} target="_blank" rel="noopener">
