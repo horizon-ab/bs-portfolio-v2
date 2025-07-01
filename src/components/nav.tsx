@@ -14,7 +14,7 @@ export function NavBar() {
         <nav className="flex flex-row p-10 text-xl gap-10">
             {Object.entries(navLinks).map(([name, { link }]) => {
                 return (
-                    <Link key={name} href={link}>{name}</Link>
+                    <Link key={name} href={link} className="hover:line-through">{name}</Link>
                 )
             })}
         </nav>
