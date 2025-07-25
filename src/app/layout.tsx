@@ -19,8 +19,20 @@ const inconsolata = Inconsolata({
 })
 
 export const metadata: Metadata = {
-  title: "baysalt.dev",
-  description: "a simple portfolio",
+  title: {
+    template: '%s | baysalt.dev',
+    default: 'baysalt.dev'
+  },
+  description: 'a simple portfolio',
+  openGraph: {
+    title: 'baysalt.dev',
+    description: 'a simple portfolio',
+    url: 'https://baysalt.dev',
+    siteName: 'baysalt.dev',
+    locale: 'en_US',
+    type: 'website',
+  },
+  
 };
 
 export const viewport: Viewport = {
