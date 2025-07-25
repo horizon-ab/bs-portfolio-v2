@@ -24,6 +24,10 @@ const projects = {
     img : "/images/gaucho-racing.jpeg",
     link : "https://gauchoracing.com/"
   },
+  "Scribble Script" : {
+    img : "/images/scribble-script.png",
+    link : "https://www.scribblescript.tech/",
+  }
 }
 
 const icons = {
