@@ -65,7 +65,7 @@ export default function Home() {
           <div className="text-5xl">Hi, I'm Bailey.</div>
           <div className="">I'm a second-year CS student at UCSB. I dabble with full-stack, AI, embedded systems, game development, etc. There will be more to come...</div>
         </div>
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center gap-5">
           <Image 
             src="/images/moonberry.png"
             alt="moonberry"
