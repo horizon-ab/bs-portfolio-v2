@@ -13,8 +13,6 @@ export const metadata: Metadata = {
   description: 'home'
 }
 
-const nums = [1, 2, 3, 4, 5, 6, 7, 8]
-
 const projects = {
   "Rizz AI" : {
     img : "/images/rizz-ai.png",
@@ -62,8 +60,8 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center gap-10 p-10 text-xl">
         <div className="flex flex-col items-start w-2/3 gap-10">
-          <div className="text-5xl">Hi, I'm Bailey.</div>
-          <div className="">I'm a second-year CS student at UCSB. I dabble with full-stack, AI, embedded systems, game development, etc. There will be more to come...</div>
+          <div className="text-5xl">Hi, I&apos;m Bailey.</div>
+          <div className="">I&apos;m a second-year CS student at UCSB. I dabble with full-stack, AI, embedded systems, game development, etc. There will be more to come...</div>
         </div>
         <div className="flex flex-col items-center gap-5">
           <Image 

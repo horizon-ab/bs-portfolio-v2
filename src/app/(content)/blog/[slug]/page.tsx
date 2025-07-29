@@ -1,53 +1,28 @@
 import { notFound } from "next/navigation"
-import { parsedMdxFiles, Post } from '@/lib/fetchPosts'
-import { MDXRemote } from "next-mdx-remote/rsc";
-import { serialize } from "next-mdx-remote/serialize"
-import { mdxComponents } from "@/components/markdownComponents";
+import { parsedMdxFiles } from '@/lib/fetchPosts'
+import { MdxLayout } from "@/components/mdxLayout";
 
 export type BlogPostPageParams = {
     params: Promise<{
         slug: string
-    }>
+    }>,
+    // searchParams?: { id?: string } add later if you want filtering
 };
 
 export const generateMetadata = async ({
     params,
-    searchParams
-}: {
-    params: { slug: string };
-    searchParams: { id: string };
-}) => {
+}: BlogPostPageParams) => {
     const { slug } = await params;
     const posts = await parsedMdxFiles();
     const post = posts.find((p) => p.slug == slug);
+
+    if (!post) notFound();
+
     return {
-        title: post?.title,
-        description: post?.description
+        title: post?.title || "Blog Post",
+        description: post?.description || "A blog post"
     }
 }
-
-export function MdxLayout({ children, props }: { children: string, props: Post} ) {
-    return (
-        <div className="flex flex-col items-center gap-10 p-10 text-xl">
-            <div className="flex flex-col items-start w-2/3 gap-5">
-                <div className="text-5xl">{props.title}</div>
-                <div className="">Published {props.date}</div>
-            </div>
-            <div className="flex flex-col gap-10 w-2/3">
-                <MDXRemote
-                    source={children}
-                    options={{
-                        mdxOptions: {
-                            
-                        }
-                    }}
-                    components={mdxComponents}
-                />
-            </div>
-        </div>
-    )
-}
-
 export async function generateStaticParams() {
     const posts = await parsedMdxFiles();
     return posts.map((post) => ({ slug: post.slug }));

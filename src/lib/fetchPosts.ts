@@ -2,7 +2,6 @@ import path from "node:path"
 import * as fs from "node:fs/promises"
 import matter from "gray-matter"
 import { cache } from "react"
-import { Metadata } from "next"
 
 export type Post = {
     slug: string,
